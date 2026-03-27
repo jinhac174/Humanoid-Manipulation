@@ -1,0 +1,26 @@
+# outputs and logs
+outputs/
+logs/
+checkpoints/
+wandb/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# isaac
+_isaac_sim/
+kit/
+
+# editor
+.vscode/
+.idea/
+*.swp
+
+# env
+.env
