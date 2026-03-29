@@ -1,0 +1,29 @@
+num_envs: 4096
+env_spacing: 5.0
+
+robot_spawn:
+  pos: [2.60009, -0.78928, 0.80143]
+  rot: [0.7071, 0.0, 0.0, 0.7071]
+
+ball_spawn:
+  pos: [2.40406, -0.24417, 0.77921]
+  x_range: [-0.093, 0.093]
+  y_range: [-0.082, 0.082]
+  yaw_range: [0.0, 6.2832]
+
+container_spawn:
+  pos: [3.05537, -0.26535, 0.75]
+  fixed: true
+
+cameras:
+  workspace:
+    eye: [x, y, z]
+    lookat: [x, y, z]
+  head:
+    eye: [x, y, z]
+    lookat: [x, y, z]
+
+viewer:
+  resolution: [1280, 720]
+  env_index: 0
+  origin_type: world

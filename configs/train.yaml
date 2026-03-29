@@ -1,0 +1,25 @@
+defaults:
+  - task: ball_container
+  - algo: ppo
+  - robot: g1
+  - sim: default
+  - scene: ball_container
+  - _self_
+
+task_name: ball-container
+headless: true
+seed: 42
+num_envs: 4096
+
+log_root: /scratch2/danielc174/humanoid-manipulation/outputs
+
+wandb:
+  project: humanoid-manipulation
+  mode: online
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  job:
+    chdir: false

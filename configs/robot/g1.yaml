@@ -1,0 +1,3 @@
+name: g1
+fix_root_link: true
+soft_joint_pos_limit_factor: 0.95

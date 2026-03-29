@@ -1,0 +1,17 @@
+name: ppo
+max_iterations: 10000
+
+actor_hidden_dims: [512, 256, 128]
+critic_hidden_dims: [512, 256, 128]
+activation: elu
+init_noise_std: 0.15
+
+learning_rate: 1.0e-4
+num_steps_per_env: 64
+num_mini_batches: 4
+num_learning_epochs: 5
+
+gamma: 0.99
+lam: 0.95
+entropy_coef: 0.025
+clip_param: 0.2
