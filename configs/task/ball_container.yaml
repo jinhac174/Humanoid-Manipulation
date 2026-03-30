@@ -1,3 +1,5 @@
+gym_id: Ball-Container
+log_name: ball_container
 episode_length_s: 20.0
 success_radius: 0.10
 
@@ -8,9 +10,12 @@ reward_handoff_weight:    1.0
 reward_transport_weight:  1.5
 reward_success_weight:    20.0
 
-penalty_drop_weight:        10.0
-penalty_right_idle_weight:  0.50
-penalty_left_idle_weight:   0.03
-penalty_joint_limits_weight: 0.20
-penalty_action_rate_weight:  0.05
-penalty_joint_vel_weight:    0.01
+penalty_drop_weight:          10.0
+penalty_right_idle_weight:    0.50
+penalty_left_idle_weight:     0.03
+penalty_joint_limits_weight:  0.20
+penalty_action_rate_weight:   0.05
+penalty_joint_vel_weight:     0.01
+
+ball_spawn_x_range: [-0.093, 0.093]
+ball_spawn_y_range: [-0.082, 0.082]

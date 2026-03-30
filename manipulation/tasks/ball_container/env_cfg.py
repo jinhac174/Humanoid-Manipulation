@@ -93,3 +93,6 @@ class BallContainerEnvCfg(DirectRLEnvCfg):
 
     observation_space = Box(low=-np.inf, high=np.inf, shape=(108,))
     action_space      = Box(low=-1.0,    high=1.0,    shape=(28,))
+
+    ball_spawn_x_range: tuple = (-0.093, 0.093)
+    ball_spawn_y_range: tuple = (-0.082, 0.082)

@@ -6,7 +6,6 @@ defaults:
   - scene: ball_container
   - _self_
 
-task_name: ball-container
 headless: true
 seed: 42
 num_envs: 4096
