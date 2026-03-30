@@ -16,12 +16,12 @@ container_spawn:
   fixed: true
 
 cameras:
-  workspace:
-    eye: [x, y, z]
-    lookat: [x, y, z]
+  wholeview:
+    eye:    [3.873, -1.249, 1.637]
+    lookat: [3.1738, -0.7046, 1.1736]
   head:
-    eye: [x, y, z]
-    lookat: [x, y, z]
+    eye:    [2.367, -0.845, 1.971]
+    lookat: [2.3711, -0.3606, 1.0962]
 
 viewer:
   resolution: [1280, 720]

@@ -1,5 +1,8 @@
 gym_id: Ball-Container
 log_name: ball_container
+env_cfg_module: manipulation.tasks.ball_container.env_cfg
+env_cfg_class: BallContainerEnvCfg
+
 episode_length_s: 20.0
 success_radius: 0.10
 

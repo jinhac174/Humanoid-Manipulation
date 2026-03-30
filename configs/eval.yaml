@@ -4,18 +4,17 @@ defaults:
   - robot: g1
   - sim: default
   - scene: ball_container
-  - eval: default
   - _self_
 
-headless: true
+headless: false
 seed: 42
-num_envs: 4096
+num_envs: 1
 
-log_root: /scratch2/danielc174/humanoid-manipulation/outputs
-
-wandb:
-  project: humanoid-manipulation
-  mode: online
+num_episodes: 3
+deterministic: true
+video_fps: 30
+video_width: 1280
+video_height: 720
 
 hydra:
   run:
