@@ -22,3 +22,6 @@ penalty_joint_vel_weight:     0.01
 
 ball_spawn_x_range: [-0.093, 0.093]
 ball_spawn_y_range: [-0.082, 0.082]
+
+defaults:
+  - override /scene: ball_container

@@ -1,10 +1,7 @@
 defaults:
-  - task: ball_container
+  - task: ???
   - algo: ppo
-  - robot: g1
   - sim: default
-  - scene: ball_container
-  - eval: default
   - _self_
 
 headless: true
@@ -15,7 +12,7 @@ log_root: /scratch2/danielc174/humanoid-manipulation/outputs
 
 wandb:
   project: humanoid-manipulation
-  mode: online
+  mode: disabled
 
 hydra:
   run:

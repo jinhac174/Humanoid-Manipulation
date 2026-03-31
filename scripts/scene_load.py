@@ -1,50 +1,79 @@
-import argparse
+"""
+Universal scene loader — headless, saves one frame per camera after reset.
+Usage:
+    ~/IsaacLab/isaaclab.sh -p scripts/scene_load.py task=can_push
+"""
+import importlib
+import numpy as np
+import imageio.v2 as imageio
+import hydra
+import torch
+from pathlib import Path
+from omegaconf import DictConfig, OmegaConf
+
 from isaaclab.app import AppLauncher
 
-parser = argparse.ArgumentParser(description="Visualize ball_container scene spawns")
-AppLauncher.add_app_launcher_args(parser)
-args_cli = parser.parse_args()
-args_cli.headless = False
 
-app_launcher = AppLauncher(args_cli)
-simulation_app = app_launcher.app
+@hydra.main(config_path="../configs", config_name="train", version_base=None)
+def main(cfg: DictConfig):
 
-import torch
-import isaaclab.sim as sim_utils
-from isaaclab.sim import SimulationContext
-from isaaclab.assets import Articulation, RigidObject, AssetBaseCfg
-from isaaclab.sensors import ContactSensor
-from isaaclab.scene import InteractiveScene
+    app_launcher   = AppLauncher(headless=True, enable_cameras=True)
+    simulation_app = app_launcher.app
 
-from manipulation.tasks.ball_container.env_cfg import BallContainerSceneCfg
+    import gymnasium as gym
+    import manipulation.tasks
 
+    save_dir = Path(cfg.log_root) / "scene_load" / cfg.task.log_name
+    save_dir.mkdir(parents=True, exist_ok=True)
 
-def main():
-    sim = SimulationContext(
-        sim_utils.SimulationCfg(dt=1/60, gravity=(0.0, 0.0, -9.81))
-    )
-    sim.set_camera_view(
-        eye=(2.6, -2.5, 1.8),
-        target=(2.7, -0.3, 0.8),
-    )
+    SCRIPT_KEYS = {"gym_id", "log_name", "env_cfg_module", "env_cfg_class",
+                   "cameras", "viewer"}
 
-    scene_cfg = BallContainerSceneCfg(num_envs=1, env_spacing=5.0)
-    scene = InteractiveScene(scene_cfg)
+    for cam_name, cam_cfg in cfg.task.cameras.items():
 
-    sim.reset()
-    scene.reset()
+        module      = importlib.import_module(cfg.task.env_cfg_module)
+        EnvCfgClass = getattr(module, cfg.task.env_cfg_class)
+        env_cfg     = EnvCfgClass()
+        env_cfg.scene.num_envs = 1
 
-    print("\n=== Scene spawned ===")
-    print(f"Robot root pos:     {scene['robot'].data.root_pos_w[0]}")
-    print(f"Ball root pos:      {scene['ball'].data.root_pos_w[0]}")
-    print(f"Container root pos: {scene['container'].data.root_pos_w[0]}")
-    print("\nSimulation running. Use GUI to inspect scene.")
-    print("Close the window to exit.\n")
+        task_dict = OmegaConf.to_container(cfg.task, resolve=True)
+        for key, val in task_dict.items():
+            if key in SCRIPT_KEYS:
+                continue
+            if hasattr(env_cfg, key):
+                setattr(env_cfg, key, val)
 
-    while simulation_app.is_running():
-        sim.step()
-        scene.update(dt=1/60)
+        env_cfg.viewer.resolution  = (cfg.task.viewer.resolution[0],
+                                      cfg.task.viewer.resolution[1])
+        env_cfg.viewer.env_index   = 0
+        env_cfg.viewer.origin_type = "world"
+        env_cfg.viewer.eye         = tuple(cam_cfg.eye)
+        env_cfg.viewer.lookat      = tuple(cam_cfg.lookat)
 
+        env = gym.make(cfg.task.gym_id, cfg=env_cfg, render_mode="rgb_array")
+        env.reset()
+
+        # step the sim (not env) so renderer produces a real frame
+        for _ in range(5):
+            env.unwrapped.sim.step()
+
+        frame = env.render()
+        if torch.is_tensor(frame):
+            frame = frame.detach().cpu().numpy()
+        frame = np.asarray(frame)
+        if frame.ndim == 4:
+            frame = frame[0]
+        if frame.dtype != np.uint8:
+            frame = np.clip(frame, 0, 255).astype(np.uint8)
+
+        out_path = save_dir / f"{cam_name}.png"
+        imageio.imwrite(str(out_path), frame)
+        print(f"[scene_load] saved: {out_path}")
+
+        env.close()
+        print(f"[scene_load] camera {cam_name} done")
+
+    print("[scene_load] all cameras done")
     simulation_app.close()
 
 

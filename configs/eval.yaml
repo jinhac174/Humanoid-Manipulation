@@ -1,13 +1,11 @@
 defaults:
-  - task: ball_container
+  - task: ???
   - algo: ppo
-  - robot: g1
   - sim: default
-  - scene: ball_container
   - _self_
 
 headless: false
-seed: 42
+seed: 0
 num_envs: 1
 
 num_episodes: 3

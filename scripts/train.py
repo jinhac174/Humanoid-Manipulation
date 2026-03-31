@@ -39,13 +39,11 @@ def main(cfg: DictConfig):
     # ── Run directory ──────────────────────────────────────────────────────
     base_dir = Path(cfg.log_root) / cfg.task.log_name / cfg.algo.name / f"seed{cfg.seed}"
     run_dir  = get_next_run_dir(base_dir)
-
     for d in ["checkpoints", "hydra", "wandb", "eval"]:
         (run_dir / d).mkdir(parents=True, exist_ok=True)
-
     print(f"[train] run dir: {run_dir}")
 
-    # ── Save resolved config ───────────────────────────────────────────────
+    # ── Save config ────────────────────────────────────────────────────────
     OmegaConf.save(cfg, run_dir / "hydra" / "config_resolved.yaml", resolve=True)
     with open(run_dir / "hydra" / "overrides.txt", "w") as f:
         f.write("\n".join(HydraConfig.get().overrides.task))
@@ -62,23 +60,28 @@ def main(cfg: DictConfig):
         config  = OmegaConf.to_container(cfg, resolve=True),
     )
 
-    # ── Environment ───────────────────────────────────────────────────────
-    module     = importlib.import_module(cfg.task.env_cfg_module)
+    # ── Build env_cfg ──────────────────────────────────────────────────────
+    module      = importlib.import_module(cfg.task.env_cfg_module)
     EnvCfgClass = getattr(module, cfg.task.env_cfg_class)
-    env_cfg    = EnvCfgClass()
+    env_cfg     = EnvCfgClass()
+
+    # push num_envs
     env_cfg.scene.num_envs = cfg.num_envs
+
+    # push all task yaml fields that exist on env_cfg
+    task_dict = OmegaConf.to_container(cfg.task, resolve=True)
+    SCRIPT_KEYS = {"gym_id", "log_name", "env_cfg_module", "env_cfg_class", "cameras", "viewer"}
+    for key, val in task_dict.items():
+        if key in SCRIPT_KEYS:
+            continue
+        if hasattr(env_cfg, key):
+            setattr(env_cfg, key, val)
 
     env = gym.make(cfg.task.gym_id, cfg=env_cfg)
 
     # ── Trainer ───────────────────────────────────────────────────────────
     from manipulation.algos import TRAINER_REGISTRY
-
-    trainer = TRAINER_REGISTRY[cfg.algo.name](
-        env     = env,
-        cfg     = cfg,
-        run_dir = run_dir,
-    )
-
+    trainer = TRAINER_REGISTRY[cfg.algo.name](env=env, cfg=cfg, run_dir=run_dir)
     trainer.run()
 
     # ── Cleanup ───────────────────────────────────────────────────────────
