@@ -1,5 +1,7 @@
 """
-Universal scene loader — headless, saves one frame per camera after reset.
+Universal scene loader — headless, saves one frame per camera.
+Creates ONE env, updates viewport between cameras.
+
 Usage:
     ~/IsaacLab/isaaclab.sh -p scripts/scene_load.py task=can_push
 """
@@ -29,31 +31,46 @@ def main(cfg: DictConfig):
     SCRIPT_KEYS = {"gym_id", "log_name", "env_cfg_module", "env_cfg_class",
                    "cameras", "viewer"}
 
-    for cam_name, cam_cfg in cfg.task.cameras.items():
+    cameras = cfg.task.cameras
+    first_cam = next(iter(cameras.values()))
 
-        module      = importlib.import_module(cfg.task.env_cfg_module)
-        EnvCfgClass = getattr(module, cfg.task.env_cfg_class)
-        env_cfg     = EnvCfgClass()
-        env_cfg.scene.num_envs = 1
+    # ── Build env once using first camera position ────────────────────────────
+    module      = importlib.import_module(cfg.task.env_cfg_module)
+    EnvCfgClass = getattr(module, cfg.task.env_cfg_class)
+    env_cfg     = EnvCfgClass()
+    env_cfg.scene.num_envs = 1
 
-        task_dict = OmegaConf.to_container(cfg.task, resolve=True)
-        for key, val in task_dict.items():
-            if key in SCRIPT_KEYS:
-                continue
-            if hasattr(env_cfg, key):
-                setattr(env_cfg, key, val)
+    task_dict = OmegaConf.to_container(cfg.task, resolve=True)
+    for key, val in task_dict.items():
+        if key in SCRIPT_KEYS:
+            continue
+        if hasattr(env_cfg, key):
+            setattr(env_cfg, key, val)
 
-        env_cfg.viewer.resolution  = (cfg.task.viewer.resolution[0],
-                                      cfg.task.viewer.resolution[1])
-        env_cfg.viewer.env_index   = 0
-        env_cfg.viewer.origin_type = "world"
-        env_cfg.viewer.eye         = tuple(cam_cfg.eye)
-        env_cfg.viewer.lookat      = tuple(cam_cfg.lookat)
+    env_cfg.viewer.resolution  = (cfg.task.viewer.resolution[0],
+                                  cfg.task.viewer.resolution[1])
+    env_cfg.viewer.env_index   = 0
+    env_cfg.viewer.origin_type = "world"
+    env_cfg.viewer.eye         = tuple(first_cam.eye)
+    env_cfg.viewer.lookat      = tuple(first_cam.lookat)
 
-        env = gym.make(cfg.task.gym_id, cfg=env_cfg, render_mode="rgb_array")
-        env.reset()
+    env = gym.make(cfg.task.gym_id, cfg=env_cfg, render_mode="rgb_array")
+    env.reset()
 
-        # step the sim (not env) so renderer produces a real frame
+    # warm up renderer
+    for _ in range(20):
+        env.unwrapped.sim.step()
+
+    # ── Capture each camera ───────────────────────────────────────────────────
+    for cam_name, cam_cfg in cameras.items():
+
+        # update viewport to this camera position
+        env.unwrapped.sim.set_camera_view(
+            eye=list(cam_cfg.eye),
+            target=list(cam_cfg.lookat),
+        )
+
+        # a few more steps for renderer to update
         for _ in range(5):
             env.unwrapped.sim.step()
 
@@ -70,11 +87,9 @@ def main(cfg: DictConfig):
         imageio.imwrite(str(out_path), frame)
         print(f"[scene_load] saved: {out_path}")
 
-        env.close()
-        print(f"[scene_load] camera {cam_name} done")
-
-    print("[scene_load] all cameras done")
+    env.close()
     simulation_app.close()
+    print("[scene_load] done")
 
 
 if __name__ == "__main__":

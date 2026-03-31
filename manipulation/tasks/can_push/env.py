@@ -70,8 +70,8 @@ class CanPushEnv(DirectRLEnv):
         # world position as a constant tensor. No runtime asset interaction needed.
         tp = cfg.scene.target.init_state.pos
         self.target_pos_w = torch.tensor(
-            [[tp[0], tp[1], tp[2]]], dtype=torch.float32, device=self.device
-        ).expand(cfg.scene.num_envs, -1)  # (num_envs, 3)
+            [tp[0], tp[1], tp[2]], dtype=torch.float32, device=self.device
+        ).unsqueeze(0).repeat(cfg.scene.num_envs, 1)  # (num_envs, 3)
 
         # ── Per-env buffers ───────────────────────────────────────────────────
         num_envs = cfg.scene.num_envs

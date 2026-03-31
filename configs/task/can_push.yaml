@@ -20,12 +20,12 @@ can_spawn_x_range: [-0.093, 0.093]
 can_spawn_y_range: [-0.082, 0.082]
 
 cameras:
-  wholeview:
-    eye:    [3.873, -1.249, 1.637]
-    lookat: [3.1738, -0.7046, 1.1736]
-  head:
-    eye:    [2.367, -0.845, 1.971]
-    lookat: [2.3711, -0.3606, 1.0962]
+  sideview:
+    eye:    [3.5361, -0.3234, 1.1854]
+    lookat: [2.5556, -0.3234, 0.9886]
+  overview:
+    eye:    [1.0010, -3.6746, 1.6016]
+    lookat: [1.2826, -2.7235, 1.4747]
 
 viewer:
   resolution: [1280, 720]
