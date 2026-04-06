@@ -1,6 +1,5 @@
 """
 Universal scene loader — headless, saves one frame per camera.
-Creates ONE env, updates viewport between cameras.
 
 Usage:
     ~/IsaacLab/isaaclab.sh -p scripts/scene_load.py task=can_push
@@ -34,7 +33,6 @@ def main(cfg: DictConfig):
     cameras = cfg.task.cameras
     first_cam = next(iter(cameras.values()))
 
-    # ── Build env once using first camera position ────────────────────────────
     module      = importlib.import_module(cfg.task.env_cfg_module)
     EnvCfgClass = getattr(module, cfg.task.env_cfg_class)
     env_cfg     = EnvCfgClass()
@@ -57,22 +55,26 @@ def main(cfg: DictConfig):
     env = gym.make(cfg.task.gym_id, cfg=env_cfg, render_mode="rgb_array")
     env.reset()
 
-    # warm up renderer
-    for _ in range(20):
-        env.unwrapped.sim.step()
+    sim = env.unwrapped.sim
+
+    # warm up + prime the renderer with a dummy render
+    for _ in range(50):
+        sim.step()
+    env.render()  # prime — discard this frame
+    for _ in range(10):
+        sim.step()
 
     # ── Capture each camera ───────────────────────────────────────────────────
     for cam_name, cam_cfg in cameras.items():
-
-        # update viewport to this camera position
-        env.unwrapped.sim.set_camera_view(
+        sim.set_camera_view(
             eye=list(cam_cfg.eye),
             target=list(cam_cfg.lookat),
         )
-
-        # a few more steps for renderer to update
+        for _ in range(20):
+            sim.step()
+        env.render()  # discard — let renderer settle
         for _ in range(5):
-            env.unwrapped.sim.step()
+            sim.step()
 
         frame = env.render()
         if torch.is_tensor(frame):
@@ -82,6 +84,9 @@ def main(cfg: DictConfig):
             frame = frame[0]
         if frame.dtype != np.uint8:
             frame = np.clip(frame, 0, 255).astype(np.uint8)
+
+        mean_val = frame.mean()
+        print(f"[scene_load] {cam_name} — mean pixel: {mean_val:.1f}")
 
         out_path = save_dir / f"{cam_name}.png"
         imageio.imwrite(str(out_path), frame)

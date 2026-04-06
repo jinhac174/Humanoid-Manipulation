@@ -1,0 +1,122 @@
+[2026-04-01 21:53:12,640][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:53:16,093][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-01 21:53:18,504][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:53:18,505][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:53:18,505][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:53:18,505][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:53:18,952][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-01 21:53:18,960][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-01 21:53:18,962][matplotlib][DEBUG] - interactive is False
+[2026-04-01 21:53:18,962][matplotlib][DEBUG] - platform is linux
+[2026-04-01 21:53:20,641][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:53:20,676][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:53:20,680][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:53:20,691][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-01 21:54:17,736][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:54:19,239][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-01 21:54:20,438][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:54:20,438][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:54:20,438][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:54:20,438][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:54:20,634][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-01 21:54:20,639][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-01 21:54:20,640][matplotlib][DEBUG] - interactive is False
+[2026-04-01 21:54:20,640][matplotlib][DEBUG] - platform is linux
+[2026-04-01 21:54:21,734][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:54:21,768][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:54:21,773][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:54:21,784][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-01 21:56:56,158][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:56:57,675][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-01 21:56:58,864][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:56:58,865][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:56:58,865][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 21:56:58,865][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 21:56:59,058][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-01 21:56:59,063][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-01 21:56:59,064][matplotlib][DEBUG] - interactive is False
+[2026-04-01 21:56:59,064][matplotlib][DEBUG] - platform is linux
+[2026-04-01 21:57:00,240][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 21:57:00,274][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:57:00,279][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 21:57:00,290][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-01 22:03:46,409][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 22:03:48,994][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-01 22:03:50,514][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 22:03:50,514][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 22:03:50,514][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-01 22:03:50,514][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-01 22:03:50,722][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-01 22:03:50,727][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-01 22:03:50,728][matplotlib][DEBUG] - interactive is False
+[2026-04-01 22:03:50,728][matplotlib][DEBUG] - platform is linux
+[2026-04-01 22:03:52,109][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-01 22:03:52,146][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 22:03:52,151][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-01 22:03:52,164][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-03 15:47:24,568][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-03 15:47:26,386][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-03 15:47:28,206][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-03 15:47:28,206][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-03 15:47:28,207][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-03 15:47:28,207][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-03 15:47:28,524][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-03 15:47:28,530][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-03 15:47:28,532][matplotlib][DEBUG] - interactive is False
+[2026-04-03 15:47:28,532][matplotlib][DEBUG] - platform is linux
+[2026-04-03 15:47:30,290][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-03 15:47:30,444][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-03 15:47:30,449][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-03 15:47:30,461][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-03 16:05:51,427][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-03 16:05:53,288][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-03 16:05:55,056][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-03 16:05:55,056][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-03 16:05:55,056][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-03 16:05:55,056][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-03 16:05:55,364][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-03 16:05:55,370][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-03 16:05:55,372][matplotlib][DEBUG] - interactive is False
+[2026-04-03 16:05:55,372][matplotlib][DEBUG] - platform is linux
+[2026-04-03 16:05:57,251][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-03 16:05:57,453][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-03 16:05:57,458][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-03 16:05:57,467][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2026-04-03 16:05:57,687][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2026-04-03 16:05:57,884][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2026-04-03 16:05:57,950][sentry_sdk.errors][DEBUG] - [Tracing] Create new propagation context: {'trace_id': '309b53d979a948549da59029e9f7435e', 'span_id': 'a43e471554117b4b', 'parent_span_id': None, 'dynamic_sampling_context': None}
+[2026-04-03 16:05:58,172][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-03 16:05:59,597][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-05 17:27:20,910][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-05 17:27:22,674][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-05 17:27:23,948][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-05 17:27:23,948][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-05 17:27:23,948][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-05 17:27:23,948][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-05 17:27:24,154][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-05 17:27:24,159][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-05 17:27:24,161][matplotlib][DEBUG] - interactive is False
+[2026-04-05 17:27:24,161][matplotlib][DEBUG] - platform is linux
+[2026-04-05 17:27:36,676][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-05 17:27:37,201][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-05 17:27:37,207][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-05 17:27:37,219][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.
+[2026-04-05 18:23:55,833][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-05 18:23:57,819][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks
+[2026-04-05 18:24:00,254][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-05 18:24:00,254][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-05 18:24:00,254][h5py._conv][DEBUG] - Creating converter from 7 to 5
+[2026-04-05 18:24:00,255][h5py._conv][DEBUG] - Creating converter from 5 to 7
+[2026-04-05 18:24:00,737][matplotlib][DEBUG] - matplotlib data path: /isaac-sim/exts/omni.isaac.core_archive/pip_prebundle/matplotlib/mpl-data
+[2026-04-05 18:24:00,742][matplotlib][DEBUG] - CONFIGDIR=/home/danielc174/.config/matplotlib
+[2026-04-05 18:24:00,744][matplotlib][DEBUG] - interactive is False
+[2026-04-05 18:24:00,744][matplotlib][DEBUG] - platform is linux
+[2026-04-05 18:24:12,074][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-04-05 18:24:12,440][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-05 18:24:12,445][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-05 18:24:12,454][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2026-04-05 18:24:12,666][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2026-04-05 18:24:12,873][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2026-04-05 18:24:13,008][sentry_sdk.errors][DEBUG] - [Tracing] Create new propagation context: {'trace_id': '5be1c5e097494413b5f91bac09288cbc', 'span_id': 'b98d6d957bff32c7', 'parent_span_id': None, 'dynamic_sampling_context': None}
+[2026-04-05 18:24:13,229][git.cmd][DEBUG] - Popen(['git', 'version'], cwd=/home/danielc174/projects/humanoid-manipulation, stdin=None, shell=False, universal_newlines=False)
+[2026-04-05 18:24:14,855][isaaclab.envs.direct_rl_env][WARNING] - Seed not set for the environment. The environment creation may not be deterministic.

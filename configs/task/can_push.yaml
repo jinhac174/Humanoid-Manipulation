@@ -4,7 +4,7 @@ env_cfg_module: manipulation.tasks.can_push.env_cfg
 env_cfg_class: CanPushEnvCfg
 
 episode_length_s: 15.0
-success_radius: 0.5
+success_radius: 0.15
 
 reward_approach_weight:  3.0
 reward_push_weight:      5.0

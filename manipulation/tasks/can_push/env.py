@@ -106,7 +106,7 @@ class CanPushEnv(DirectRLEnv):
         event_fn.reset_robot(self, env_ids)
         event_fn.reset_can(self, env_ids)
         event_fn.reset_buffers(self, env_ids)
-
+        
     # ── Observations ──────────────────────────────────────────────────────────
 
     def _get_observations(self) -> dict:
