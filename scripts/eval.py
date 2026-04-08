@@ -9,7 +9,7 @@ from omegaconf import DictConfig, OmegaConf
 from isaaclab.app import AppLauncher
 
 # ── Set checkpoint path here ───────────────────────────────────────────────────
-CHECKPOINT_PATH = "/scratch2/danielc174/humanoid-manipulation/outputs/can_push/ppo/seed42/run_000/checkpoints/model_9000.pt"
+CHECKPOINT_PATH = "/scratch2/danielc174/humanoid-manipulation/outputs/insert/ppo/seed42/run_004/checkpoints/model_1000.pt"
 
 
 @hydra.main(config_path="../configs", config_name="eval", version_base=None)

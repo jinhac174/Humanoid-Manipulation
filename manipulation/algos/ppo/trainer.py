@@ -76,10 +76,12 @@ class PPOTrainer:
                 obs_dict, rewards, terminated, timed_out, info = env.step(actions)
                 next_obs = obs_dict["policy"]
 
-                if isinstance(info, dict) and "log" in info:
-                    for k, v in info["log"].items():
-                        rollout_log_sums[k] = rollout_log_sums.get(k, 0.0) + float(v)
-                    rollout_log_count += 1
+                for k, v in info.items():
+                    if isinstance(v, torch.Tensor):
+                        rollout_log_sums[k] = rollout_log_sums.get(k, 0.0) + float(v.mean())
+                    elif isinstance(v, float):
+                        rollout_log_sums[k] = rollout_log_sums.get(k, 0.0) + v
+                rollout_log_count += 1
 
                 next_obs = agent.normalize_obs(next_obs, update_stats=True)
                 dones    = (terminated | timed_out).float()

@@ -24,3 +24,6 @@ kit/
 
 # env
 .env
+
+eval.log
+train.log
