@@ -45,12 +45,16 @@ class InsertSceneCfg(InteractiveSceneCfg):
     robot = G1_FIXED_CFG.replace(
         prim_path="{ENV_REGEX_NS}/Robot",
         init_state=G1_FIXED_CFG.init_state.replace(
-            pos=(0.0, 0.0, 0.76),
+            pos=(0.03, 0.0, 0.76),
             rot=(1.0, 0.0, 0.0, 0.0),
             joint_pos={
-                ".*_hip_pitch_joint":          -0.312,
-                ".*_knee_joint":                0.669,
-                ".*_ankle_pitch_joint":        -0.363,
+                ".*_hip_pitch_joint":  0.0,
+                ".*_hip_roll_joint":   0.0,
+                ".*_hip_yaw_joint":    0.0,
+                ".*_knee_joint":       0.0,
+                ".*_ankle_pitch_joint":0.0,
+                ".*_ankle_roll_joint": 0.0,
+                "waist_.*":            0.0,
                 "left_shoulder_pitch_joint":   -0.7,
                 "left_shoulder_roll_joint":     0.4,
                 "right_shoulder_pitch_joint":  -0.7,
